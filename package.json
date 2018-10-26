@@ -62,7 +62,7 @@
       "path": "node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "yarn run precommit && yarn run test:single && yarn run check-coverage"
+      "pre-commit": "yarn run test:single && yarn run check-coverage"
     }
   }
 }
