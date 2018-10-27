@@ -3,10 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
-const dburi = process.env.TEST_DB_URI;
-
 mongoose.connect(
-  dburi,
+  process.env.TEST_DB_URI || process.env.PROD_DB_URI,
   { useNewUrlParser: true }
 );
 mongoose.connection.on('error', err => {

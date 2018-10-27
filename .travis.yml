@@ -2,10 +2,18 @@ sudo: required
 
 language: node_js
 
+services: mongodb
+
+before_script:
+  - sleep 10 # because mongodb doesn't start accepting connections right away
+  - mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
+
 node_js:
   - '8'
 
-? env
+env:
+  - TEST_DB_URI=mongodb://test:test@127.0.0.1:27017/test_db
+
 matrix:
   include:
     - node_js: '10'
