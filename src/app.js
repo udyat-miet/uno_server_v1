@@ -3,12 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
-const dburi =
-  process.env.NODE_ENV === 'development'
-    ? 'mongodb://localhost:27017/uno_server_v1'
-    : `mongodb://${process.env.TEST_DB_USER}:${process.env.TEST_DB_PASSWORD}@${
-        process.env.TEST_DB_CONNECTION_ADDRESS
-      }`;
+const dburi = process.env.TEST_DB_URI;
 
 mongoose.connect(
   dburi,
