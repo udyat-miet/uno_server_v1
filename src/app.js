@@ -3,8 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 
+const dburi =
+  process.env.NODE_ENV === 'development'
+    ? process.env.TEST_DB_URI
+    : process.env.PROD_DB_URI;
+
 mongoose.connect(
-  process.env.TEST_DB_URI || process.env.PROD_DB_URI,
+  `${dburi}`,
   { useNewUrlParser: true }
 );
 mongoose.connection.on('error', err => {
