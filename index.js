@@ -1,3 +1,4 @@
 const app = require('./src/app');
 
-app.listen(4000, () => console.log('Up and running'));
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => console.log(`Up and running on port ${PORT}`));

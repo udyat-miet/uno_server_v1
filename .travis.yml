@@ -1,39 +1,35 @@
 sudo: required
-
 language: node_js
-
 services: mongodb
-
 before_script:
-  - sleep 10 # because mongodb doesn't start accepting connections right away
-  - mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
-
+- sleep 10
+- mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
 node_js:
-  - '8'
-
+- '8'
 env:
-  - TEST_DB_URI=mongodb://test:test@127.0.0.1:27017/test_db
-
+- TEST_DB_URI=mongodb://test:test@127.0.0.1:27017/test_db
 matrix:
   include:
-    - node_js: '10'
+  - node_js: '10'
   allow_failures:
-    - node_js: '10'
-
+  - node_js: '10'
 notifications:
   disabled: true
-
 before_install:
-  - npm install -g codecov
-
+- npm install -g codecov
 install:
-  - npm install
-
+- npm install
 script:
-  - node index.js &
-  - npm run check-coverage
-  - codecov
-
+- node index.js &
+- npm run check-coverage
+- codecov
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+deploy:
+  provider: heroku
+  api_key:
+    secure: cnMUPNDFLRjWaeESx2q0wsGBZuEWlTNWtWE7yJzXVQZaCjdtU5GRWGe42ddLwAv2ncp9SB0HzCcesE7h3Uh6DoZ9sZk85AWL7zlFkUvzanR6Ft78OTbRnQiOf63oorzTYPlbk1RoY50MSLWci95nEez5c0yrm4aA2oJrhRM8+AqEkQBWGf9FYyukhvdT02zOCJ2h+E5jA9nDyQ8RMgMdrIc5hxHj2l5pKUPAl4hCn4LL492ud2HXI4vpyZajTzOHgYACoTx2mQRsJ+FeGhEQQS7j2ard4fYK5UAIFJf6tHiPomWXoTfSgApTxEk51nGfUyzSFG47I+ZO0IwcLIxvKAPhWXpgdApiRxH5aDfz3lyFBaosQ5wLZTFCG4grqS0kAchs2rW+I+3lqxrHPZrQkiuz+RdHQHeT5dDYhDp/xVE7DYD3/sDp68PiGaNpjzu7r3uv+KsDnABi/YGk7luGaaI2DV5W0RaJMGq+OXKfBD2RfOoQ7//TmeLN7Dq7z/3qQiPJWpppyFN3vGl9/4xzyUG+GBLLGU04Yt+1VvL8RFjK+GBnNKeyYSi6qdQYc30H4go+FL7cdMCHtPTYJe+hbIZ81LnsbbNLqitXszGcplQze26NDgEKGEY0DTJ/u3qX4BP8LnD50/RinxPxoA+APXguEkPF0yh6lunBSh1k52g=
+  app: rs-uno-server-v1
+  on:
+    repo: udyat-miet/uno_server_v1
