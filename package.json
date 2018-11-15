@@ -5,10 +5,22 @@
   "main": "index.js",
   "repository": "git@github.com:udyat-miet/uno_server_v1.git",
   "author": {
-    "name": "Ravi Soni",
-    "email": "soniravi829@gmail.com",
-    "url": "https://ravisoni.me"
+    "name": "Udyat, MIET",
+    "email": "udyat@miet.ac.in",
+    "url": "https://udyat-miet.github.io"
   },
+  "contributors": [
+    {
+      "name": "Ravi Soni",
+      "email": "soniravi829@gmail.com",
+      "url": "https://ravisoni.me"
+    },
+    {
+      "name": "Ashutosh Gangwar",
+      "email": "ashutoshgngwr@gmail.com",
+      "url": "https://ashutoshgngwr.github.io"
+    }
+  ],
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "dotenv": "6.1.0",
