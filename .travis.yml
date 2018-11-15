@@ -1,9 +1,6 @@
 sudo: required
 language: node_js
 services: mongodb
-before_script:
-- sleep 10
-- mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
 node_js:
 - '8'
 env:
@@ -19,6 +16,9 @@ before_install:
 - npm install -g codecov
 install:
 - npm install
+before_script:
+- sleep 10
+- mongo test_db --eval 'db.createUser({user:"test",pwd:"test",roles:["readWrite"]});'
 script:
 - node index.js &
 - npm run check-coverage
