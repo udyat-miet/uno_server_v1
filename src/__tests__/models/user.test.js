@@ -1,4 +1,3 @@
-require('../../app');
 const User = require('../../models/user');
 
 describe('It should test User model', () => {
