@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mongo:
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=uno_db_admin
+      - MONGO_INITDB_ROOT_PASSWORD=uno_db_password
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - '27017:27017'
+  app:
+    container_name: uno
+    environment:
+      - NODE_ENV=development
+      - TEST_DB_URI=mongodb://uno_db_admin:uno_db_password@mongo/
+    volumes:
+      - .:/uno
+    links:
+      - mongo
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - '3000:8080'
+    command: ['yarn', 'dev']
