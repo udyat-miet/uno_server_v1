@@ -4,7 +4,7 @@ RUN mkdir -p /uno
 WORKDIR /uno
 COPY . .
 
-RUN yarn install --prod
+RUN ["yarn", "install", "--prod"]
 
 EXPOSE ${PORT}
 
