@@ -49,6 +49,7 @@
   },
   "scripts": {
     "dev": "nodemon index.js",
+    "dev-docker": "yarn && yarn dev",
     "commit": "git-cz",
     "lint": "eslint .",
     "test:single": "jest --detectOpenHandles",

@@ -7,7 +7,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=uno_db_password
     image: mongo
     volumes:
-      - ./data:/data/db
+      - ./.docker-cache/data:/data/db
     ports:
       - '27017:27017'
   app:
@@ -16,6 +16,7 @@ services:
       - NODE_ENV=development
       - TEST_DB_URI=mongodb://uno_db_admin:uno_db_password@mongo/
     volumes:
+      - ./.docker-cache/node_modules:/uno/node_modules
       - .:/uno
     links:
       - mongo
@@ -24,4 +25,3 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - '3000:8080'
-    command: ['yarn', 'dev']
