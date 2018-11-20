@@ -5,4 +5,4 @@ WORKDIR /uno
 RUN yarn
 
 EXPOSE ${PORT}
-CMD ["yarn", "dev"]
+CMD ["yarn", "dev-docker"]
