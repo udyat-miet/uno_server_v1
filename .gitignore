@@ -62,9 +62,3 @@ typings/
 
 # macos folder metadata
 .DS_STORE
-
-# mongodb data if run using docker
-data/
-
-# cached npm modules for Docker (dev run)
-.docker-cache/

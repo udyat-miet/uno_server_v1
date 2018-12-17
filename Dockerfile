@@ -1,12 +1,11 @@
-FROM node:8
+FROM node:8-alpine
 
 RUN mkdir -p /uno
 WORKDIR /uno
 COPY . .
 
-RUN ["yarn", "install", "--prod"]
-
+ENV NODE_ENV=production
+RUN npm install
 EXPOSE ${PORT}
 
-ENV NODE_ENV=production
-CMD ["yarn", "start"]
+CMD npm start
