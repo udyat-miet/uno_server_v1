@@ -1,8 +1,3 @@
-FROM node:8
+FROM node:8-alpine
 
 WORKDIR /uno
-
-RUN yarn
-
-EXPOSE ${PORT}
-CMD ["yarn", "dev-docker"]
