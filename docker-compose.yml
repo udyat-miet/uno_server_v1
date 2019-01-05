@@ -18,7 +18,7 @@ services:
       - TEST_DB_URI=mongodb://uno_db_admin:uno_db_password@mongo/
     volumes:
       - /uno/node_modules
-      - .:/uno
+      - ./src:/uno/src
     links:
       - mongo
     build:
