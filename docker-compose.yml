@@ -31,7 +31,7 @@ services:
     volumes:
       - /uno/node_modules
       - ./src:/uno/src
-    links:
+    depends_on:
       - mongo
     build:
       context: .
