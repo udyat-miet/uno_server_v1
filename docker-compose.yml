@@ -11,7 +11,8 @@ services:
     ports:
       - '27017:27017'
   app:
-    container_name: uno
+    image: uno_server_v1:latest
+    container_name: uno_server_v1
     environment:
       - NODE_ENV=development
       - TEST_DB_URI=mongodb://uno_db_admin:uno_db_password@mongo/
@@ -22,7 +23,6 @@ services:
       - mongo
     build:
       context: .
-      dockerfile: Dockerfile.dev
     ports:
       - '3000:8080'
     command: sh -c 'npm install && npm run dev'
