@@ -19,11 +19,18 @@ cd uno_server_v1
 
 #### Using Docker
 
-Although You CAN build an image with `docker build`, we recommend using Docker Compose to easily manage local development server. _Simply because we're not savages!_
+Although You _CAN_ build an image with `docker build`, we recommend using Docker Compose to easily manage local development setup.
 
 ```bash
-docker-compose up # starts a live reload server at port 3000
+docker-compose build # to build latest image
+docker-compose up # start a live reload server at localhost:3000
 ```
+
+##### Notes:
+
+- When run using Docker Compose, a MongoDB container is also created. :wink:
+- [mongo-express](https://github.com/mongo-express/mongo-express) UI is also exposed at http://localhost:3001 in a seperate Docker container.
+- Live reloading is only enabled for `src/`. Any changes outside `src/` would require rebuilding the container.
 
 #### Using npm or yarn
 
