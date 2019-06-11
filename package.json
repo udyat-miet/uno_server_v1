@@ -45,7 +45,7 @@
     "lint-staged": "7.3.0",
     "nodemon": "1.18.5",
     "prettier": "1.14.3",
-    "supertest": "3.3.0"
+    "supertest": "4.0.2"
   },
   "scripts": {
     "dev": "nodemon index.js",
