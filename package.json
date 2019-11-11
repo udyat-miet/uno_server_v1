@@ -44,7 +44,7 @@
     "jest": "23.6.0",
     "lint-staged": "7.3.0",
     "nodemon": "1.18.5",
-    "prettier": "1.14.3",
+    "prettier": "1.19.1",
     "supertest": "3.3.0"
   },
   "scripts": {
